@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from snowflake.snowpark import Session
 
 st.header("Mark's Very Good and Official Performance Information")
 
@@ -13,7 +14,15 @@ score_actual = st.slider("How did the show actually go?", 0, 10)
 # Snowflake connection
 # connect doesn't work
 # error is about name param
-conn = st.connection(**st.secrets["snowflake"], type='sql')
+# conn = st.connection(**st.secrets["snowflake"], type='sql')
+
+# Establish Snowflake session
+@st.cache_resource
+def create_session():
+    return Session.builder.configs(st.secrets.snowflake).create()
+
+session = create_session()
+st.success("Connected to Snowflake!")
 
 # initialize dataframe
 # not working
