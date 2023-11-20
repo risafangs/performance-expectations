@@ -14,15 +14,17 @@ score_actual = st.slider("How did the show actually go?", 0, 10)
 # Snowflake connection
 # connect doesn't work
 # error is about name param
-# conn = st.connection(**st.secrets["snowflake"], type='sql')
+#conn = st.connection(**st.secrets["snowflake"], type='sql')
+
+conn = st.connection("snowflake")
 
 # Establish Snowflake session
-@st.cache_resource
-def create_session():
-    return Session.builder.configs(st.secrets.snowflake).create()
-
-session = create_session()
-st.success("Connected to Snowflake!")
+# this kind of works? but cannot open the SSO browser (connection error)
+#@st.cache_resource
+#def create_session():
+#    return Session.builder.configs(st.secrets.snowflake).create()
+# session = create_session()
+# st.success("Connected to Snowflake!")
 
 # initialize dataframe
 # not working
