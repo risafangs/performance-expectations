@@ -13,7 +13,7 @@ score_actual = st.slider("How did the show actually go?", 0, 10)
 # Snowflake connection
 # connect doesn't work
 # error is about name param
-conn = st.connection(**st.secrets["snowflake"])
+conn = st.connection(**st.secrets["snowflake"], type='sql')
 
 # initialize dataframe
 # not working
