@@ -16,7 +16,7 @@ score_actual = st.slider("How did the show actually go?", 0, 10)
 # error is about name param
 #conn = st.connection(**st.secrets["snowflake"], type='sql')
 
-conn = st.connection("snowflake", type = "snowflake", **st.secrets["snowflake"])
+conn = st.connection("lisa_bdc", type = "snowflake", **st.secrets["snowflake"])
 
 # Establish Snowflake session
 # this kind of works? but cannot open the SSO browser (connection error)
