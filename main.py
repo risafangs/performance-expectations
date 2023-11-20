@@ -15,6 +15,7 @@ new_input = dict(show_date, show_name, score_estimate, score_actual)
 # conn = st.connect(**st.secrets["snowflake"])
 
 # initialize dataframe
-df = pd.DataFrame(new_input)
+# not working
+# df = pd.DataFrame(new_input)
 
 st.dataframe(df)
