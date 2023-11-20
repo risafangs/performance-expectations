@@ -11,8 +11,9 @@ score_actual = st.slider("How did the show actually go?", 0, 10)
 # new_input = dict(show_date, show_name, score_estimate, score_actual)
 
 # Snowflake connection
-# doesn't work, st.connect or st.connection
-conn = st.connect(**st.secrets["snowflake"])
+# connect doesn't work
+# error is about name param
+conn = st.connection(**st.secrets["snowflake"])
 
 # initialize dataframe
 # not working
