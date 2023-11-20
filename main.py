@@ -10,5 +10,10 @@ show_estimate = st.slider("How did you think the show would go?", 0, 10)
 show_actual = st.slider("How did the show actually go?", 0, 10)
 
 # Snowflake connection
-conn = st.connect(**st.secrets["snowflake"])
+# doesn't work, st.connect or st.connection
+# conn = st.connect(**st.secrets["snowflake"])
 
+# initialize dataframe
+df = pd.DataFrame(show_date, show_name, show_estimate, show_actual, columns=["date", "name", "estimate", "actual"])
+
+st.dataframe(df)
