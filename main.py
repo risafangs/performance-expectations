@@ -16,5 +16,5 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read()
 
 # Print Sheet results
-#for row in df.itertuples():
-#    st.write(f"The {row.show_name} show on {row.date} had an estimated score of {row.score_estimate} but was actually a {row.score_actual}") 
+for row in df.itertuples():
+    st.write(f"The {row.show_name} show on {row.date} had an estimated score of {row.score_estimate} but was actually a {row.score_actual}") 
